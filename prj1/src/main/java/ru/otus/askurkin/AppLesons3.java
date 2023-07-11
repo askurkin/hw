@@ -81,9 +81,9 @@ public class AppLesons3 {
 			greetings();
 		}
 		if (valIn == 2) {
-			int a = (int) (Math.random() * 100);
-			int b = (int) (Math.random() * 100);
-			int c = (int) (Math.random() * 100);
+			int a = (int) (Math.random() * 100) - 50;
+			int b = (int) (Math.random() * 100) - 50;
+			int c = (int) (Math.random() * 100) - 50;
 			checkSign(a, b, c);
 		}
 		if (valIn == 3) {
@@ -93,8 +93,8 @@ public class AppLesons3 {
 			compareNumbers();
 		}
 		if (valIn == 5) {
-			int val1 = (int) (Math.random() * 100);
-			int val2 = (int) (Math.random() * 100);
+			int val1 = (int) (Math.random() * 100) - 50;
+			int val2 = (int) (Math.random() * 100) - 50;
 			boolean val3 = (Math.random() * 2 == 1);
 			addOrSubtractAndPrint(val1, val2, val3);
 		}
