@@ -70,21 +70,27 @@ public class AppLesson5 {
 
 	public static void checkPoint(int[] arr) {
 		int point = -1;
+
+		int sumAll = 0;
 		for (int i = 0; i < arr.length; i++) {
-			if (sumElOfArr(arr, i, true) == sumElOfArr(arr, i, false)) {
-				point = i;
-				break;
-			}
+			sumAll += arr[i];
 		}
 
+		int sumLeft = 0;
 		for (int i = 0; i < arr.length; i++) {
+			sumLeft += arr[i];
 			System.out.print(arr[i] + ", ");
-			if (i == point) {
+			if (sumLeft == sumAll - sumLeft) {
+				point = i;
 				System.out.print("|");
 			}
 		}
-		System.out.println();
 
+		if (point >= 0) {
+			System.out.println(" - Найдено");
+		} else {
+			System.out.println(" - Не найдено");
+		}
 	}
 
 	public static boolean checkSort(int[] arr, boolean asc) {
