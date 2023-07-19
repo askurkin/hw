@@ -52,22 +52,6 @@ public class AppLesson5 {
 		return resultArr;
 	}
 
-	public static int sumElOfArr(int[] arr, int pos, boolean left) {
-		int sum = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (pos < i) {
-				if (left) {
-					sum += arr[i];
-				}
-			} else {
-				if (!left) {
-					sum += arr[i];
-				}
-			}
-		}
-		return sum;
-	}
-
 	public static void checkPoint(int[] arr) {
 		int point = -1;
 
