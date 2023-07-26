@@ -85,11 +85,9 @@ public class AppLesson7 {
 
 	public static int[][] diagonalsSet0(int[][] array) {
 		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array[i].length; j++) {
-				if (i == j || i == array[i].length - j - 1) {
-					array[i][j] = 0;
-				}
-			}
+			array[i][i] = 0;
+			array[i][array.length - i - 1] = 0;
+
 		}
 		return array;
 	}
