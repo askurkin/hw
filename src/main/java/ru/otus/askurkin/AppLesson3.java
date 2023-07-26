@@ -2,7 +2,7 @@ package ru.otus.askurkin;
 
 import java.util.Scanner;
 
-public class AppLesons3 {
+public class AppLesson3 {
 	public static void main(String[] args) {
 
 		System.out.println("Task(1)");
