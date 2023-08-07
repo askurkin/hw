@@ -1,5 +1,10 @@
 package ru.otus.askurkin;
 
+import ru.otus.askurkin.Animals.Animal;
+import ru.otus.askurkin.Animals.Cat;
+import ru.otus.askurkin.Animals.Dog;
+import ru.otus.askurkin.Animals.Horse;
+
 public class AppLesson11 {
 	public static void main(String[] args) {
 		Animal[] animals = new Animal[3];
@@ -12,7 +17,7 @@ public class AppLesson11 {
 			animals[i].info();
 		}
 
-		while (animals[0].ready && animals[1].ready && animals[2].ready) {
+		while (animals[0].isReady() && animals[1].isReady() && animals[2].isReady()) {
 			for (int i = 0; i < animals.length; i++) {
 				int second;
 				second = animals[i].run(random(200));

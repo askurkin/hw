@@ -1,13 +1,17 @@
-package ru.otus.askurkin;
+package ru.otus.askurkin.Animals;
 
 public abstract class Animal {
-	public String name;
+	String name;
 	int speedRun;
 	int speedSwim;
 	int strong;
 	final int strongRun = 1;
 	int strongSwim;
 	boolean ready;
+
+	public boolean isReady() {
+		return ready;
+	}
 
 	public Animal(String name, int strong) {
 		this.name = name;
