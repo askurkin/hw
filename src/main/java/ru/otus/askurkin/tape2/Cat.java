@@ -1,4 +1,4 @@
-package ru.otus.askurkin.Tapes;
+package ru.otus.askurkin.tape2;
 
 public class Cat {
 	private String name;

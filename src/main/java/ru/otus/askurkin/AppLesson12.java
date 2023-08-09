@@ -1,6 +1,7 @@
 package ru.otus.askurkin;
 
-import ru.otus.askurkin.Tapes.*;
+import ru.otus.askurkin.tape2.Cat;
+import ru.otus.askurkin.tape2.Tapes;
 
 public class AppLesson12 {
 	public static void main(String[] args) {
