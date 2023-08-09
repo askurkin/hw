@@ -1,4 +1,4 @@
-package ru.otus.askurkin.Animals;
+package ru.otus.askurkin.animal;
 
 public abstract class Animal {
 	String name;

@@ -1,4 +1,4 @@
-package ru.otus.askurkin.Animals;
+package ru.otus.askurkin.animal;
 
 public class Dog extends Animal {
 	public Dog(String name, int strong) {

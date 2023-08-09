@@ -1,9 +1,9 @@
 package ru.otus.askurkin;
 
-import ru.otus.askurkin.Animals.Animal;
-import ru.otus.askurkin.Animals.Cat;
-import ru.otus.askurkin.Animals.Dog;
-import ru.otus.askurkin.Animals.Horse;
+import ru.otus.askurkin.animal.Animal;
+import ru.otus.askurkin.animal.Cat;
+import ru.otus.askurkin.animal.Dog;
+import ru.otus.askurkin.animal.Horse;
 
 public class AppLesson11 {
 	public static void main(String[] args) {
