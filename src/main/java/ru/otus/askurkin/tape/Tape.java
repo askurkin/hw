@@ -1,12 +1,15 @@
-package ru.otus.askurkin.tape2;
+package ru.otus.askurkin.tape;
 
-public class Tapes {
+public class Tape {
 	private int maxFood = 100;
 	private int food;
 
-	public Tapes(int maxFeed) {
-		this.maxFood = maxFeed;
-		this.food = maxFeed;
+	public Tape(int initFood, int maxFood) {
+		this.maxFood = maxFood;
+		food = initFood;
+		if (initFood > maxFood) {
+			food = maxFood;
+		}
 	}
 
 	public void appendFood(int food) {

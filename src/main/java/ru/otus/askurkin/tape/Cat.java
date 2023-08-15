@@ -1,4 +1,4 @@
-package ru.otus.askurkin.tape2;
+package ru.otus.askurkin.tape;
 
 public class Cat {
 	private String name;
@@ -16,7 +16,11 @@ public class Cat {
 		this.full = false;
 	}
 
-	public void eat(Tapes tape) {
+	public void eat(Tape tape) {
+		if (full) {
+			System.out.println( name + " сыт");
+			return;
+		}
 		if (!tape.eat(apetin)) {
 			System.out.println(name + " не хватает еды");
 			return;

@@ -1,7 +1,7 @@
 package ru.otus.askurkin;
 
-import ru.otus.askurkin.tape2.Cat;
-import ru.otus.askurkin.tape2.Tapes;
+import ru.otus.askurkin.tape.Cat;
+import ru.otus.askurkin.tape.Tape;
 
 public class AppLesson12 {
 	public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class AppLesson12 {
 		for (int i = 0; i < cats.length; i++) {
 			cats[i] = new Cat("Кот" + i, AppLesson7.random(100));
 		}
-		Tapes tape = new Tapes(300);
+		Tape tape = new Tape(150, 300);
 
 		System.out.println(tape);
 		for (int i = 0; i < cats.length; i++) {
