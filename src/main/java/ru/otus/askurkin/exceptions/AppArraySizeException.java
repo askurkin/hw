@@ -1,4 +1,4 @@
 package ru.otus.askurkin.exceptions;
 
-public class AppArraySizeException extends RuntimeException{
+public class AppArraySizeException extends Exception{
 }
