@@ -1,8 +1,15 @@
 package ru.otus.askurkin.exceptions;
 
 public class AppArrayDataException extends RuntimeException {
-	public AppArrayDataException(String info) {
+	private String message;
+
+	public AppArrayDataException(String message) {
 		super();
-		System.err.println(info);
+		this.message = message;
+	}
+
+	@Override
+	public String toString() {
+		return message;
 	}
 }
