@@ -3,23 +3,14 @@ package ru.otus.askurkin;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class AppLesson18 {
-
-//	Описание/Пошаговая инструкция выполнения домашнего задания:
-//Реализуйте приложение, позволяющее работать с текстовыми файлами
-//При старте приложения, в консоль выводится список текстовых файлов из корневого каталоге проекта
-//Далее программа запрашивает имя файла, с которым хочет работать пользователь
-//Содержимое файла выводится в консоль
-//Затем любую введенную пользователем строку необходимо записывать в указанный файл
 
 	public static void main(String[] args) {
 		File dir = new File(".");
