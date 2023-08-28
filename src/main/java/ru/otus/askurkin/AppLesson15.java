@@ -9,7 +9,7 @@ public class AppLesson15 {
 
 	public static void main(String[] args) {
 
-		System.out.println(getArray(4, 10));
+		System.out.println(createList(4, 10));
 
 		ArrayList<Integer> arr2 = new ArrayList<>();
 		arr2.add(3);
@@ -17,7 +17,7 @@ public class AppLesson15 {
 		arr2.add(9);
 		arr2.add(10);
 		System.out.println(arr2);
-		System.out.println(sumElMoreWhen5(arr2));
+		System.out.println(sumElMoreThen5(arr2));
 
 		addToAll(4, arr2);
 		System.out.println(arr2);
@@ -36,7 +36,7 @@ public class AppLesson15 {
 		System.out.println(getYongest(arr4));
 	}
 
-	public static List<Integer> getArray(int min, int max) {
+	public static List<Integer> createList(int min, int max) {
 		List<Integer> arr = new ArrayList<>();
 		for (int i = min; i <= max; i++) {
 			arr.add(i);
@@ -44,7 +44,7 @@ public class AppLesson15 {
 		return arr;
 	}
 
-	public static int sumElMoreWhen5(List<Integer> arr) {
+	public static int sumElMoreThen5(List<Integer> arr) {
 		int sum = 0;
 
 		for (Integer i : arr) {
