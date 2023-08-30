@@ -7,10 +7,10 @@ import java.util.Set;
 
 public class PhoneBook {
 
-	Map<String, HashSet<String>> phoneList = new HashMap<>();
+	Map<String, Set<String>> phoneList = new HashMap<>();
 
 	public void add(String name, String phone) {
-		HashSet<String> phones = phoneList.get(name);
+		Set<String> phones = phoneList.get(name);
 		if (phones == null) {
 			phones = new HashSet<>();
 		}
@@ -23,8 +23,8 @@ public class PhoneBook {
 	}
 
 	public boolean containsPhoneNumber(String checkedPhone) {
-		for (String name : phoneList.keySet()) {
-			for (String phone : phoneList.get(name)) {
+		for (Set<String> phones : phoneList.values()) {
+			for (String phone : phones) {
 				if (checkedPhone.equals(phone)) {
 					return true;
 				}
