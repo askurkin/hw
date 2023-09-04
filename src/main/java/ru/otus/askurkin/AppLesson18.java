@@ -15,7 +15,7 @@ public class AppLesson18 {
 	public static void main(String[] args) {
 		File dir = new File(".");
 		for (File file : dir.listFiles()) {
-			if (file.isFile() & file.getName().endsWith(".txt")) {
+			if (file.isFile() && file.getName().endsWith(".txt")) {
 				System.out.println(file.getName());
 			}
 		}
