@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
@@ -24,15 +25,14 @@ public class AppLesson18 {
 		System.out.print("Введите имя файла: ");
 		String fileName = scanner.next();
 
-		try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(fileName))) {
+		try (InputStreamReader in = new InputStreamReader(new BufferedInputStream(new FileInputStream(fileName)))) {
 			int ch = in.read();
 			while (ch != -1) {
 				System.out.print((char) ch);
 				ch = in.read();
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("Файл " + fileName + " не найден.");
-			return;
+			throw new RuntimeException("Файл " + fileName + " не найден.");
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
