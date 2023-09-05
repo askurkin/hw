@@ -29,7 +29,7 @@ public class Lesn20Client implements AutoCloseable {
 
 		String result;
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
-			result = reader.readLine();
+			result = reader.readLine();  // виснет
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
