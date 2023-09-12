@@ -2,20 +2,32 @@ package ru.otus.askurkin;
 
 import ru.otus.askurkin.lesn20.Lesn20Server;
 
-import java.io.IOException;
-
 public class AppLesson20Srv {
-	public static void main(String[] args) throws IOException {
-		try (Lesn20Server server = new Lesn20Server(8089)) {
+	static int port = 8080;
+
+	public static void main(String[] args) {
+		try (Lesn20Server server = new Lesn20Server(AppLesson20Srv.port)) {
 			while (true) {
-				String str = server.read();
-				System.out.println(str);
-				str = server.process(str);
-				System.out.println(" = " + str);
-				server.push(str);
+
+				System.out.println("Ready");
+				String buff = server.readRequest();
+				System.out.println(buff);
+
+				String res = "";
+				if (buff.equals("operation")) {
+					res = "+ - * /";
+				} else {
+					res = Lesn20Server.process(buff);
+				}
+				System.out.println(buff + " = " + res);
+
+				server.push(res);
+				System.out.println("Push");
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
+		} finally {
+			System.out.println("Stop");
 		}
 	}
 }
