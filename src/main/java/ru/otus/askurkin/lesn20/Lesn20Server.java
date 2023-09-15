@@ -20,21 +20,34 @@ public class Lesn20Server implements AutoCloseable {
 		serverSocket = new ServerSocket(port);
 	}
 
-	public String readRequest() throws IOException {
+	public void start() throws IOException {
+
 		socket = serverSocket.accept();
 		in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 		out = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
-		String result = "";
+		System.out.println("Connect");
 		while (true) {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-			String str = reader.readLine();
-			if (str == null || str.trim().length() == 0) {
-				break;
+			String buff = reader.readLine();
+			System.out.println(buff);
+
+			String res = "";
+			if (buff.equals("operation")) {
+				res = "+ - * /";
 			}
-			result = result.concat(str);
+			if (buff.trim().length() > 0) {
+				res = Lesn20Server.process(buff);
+			}
+			System.out.println(buff + " = " + res);
+
+			if (res.trim().length() > 0) {
+				out.writeBytes(res + "\n");
+				out.flush();
+				System.out.println("Push");
+			}
 		}
-		return result;
 	}
+
 
 	public static String process(String str) {
 		String[] prc = str.split(" ");
@@ -52,13 +65,10 @@ public class Lesn20Server implements AutoCloseable {
 		return null;
 	}
 
-	public void push(String str) throws IOException {
-		out.writeBytes(str);
-		out.flush();
-	}
-
 	@Override
 	public void close() throws Exception {
+		in.close();
+		out.close();
 		serverSocket.close();
 	}
 }

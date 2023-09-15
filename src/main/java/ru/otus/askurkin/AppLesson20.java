@@ -12,16 +12,11 @@ public class AppLesson20 {
 		try (Lesn20Client client = new Lesn20Client(host, port)) {
 			System.out.println("operation");
 			client.push("operation");
-//			System.out.println("support " + client.pull()); // !!! висит
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-
-		try (Lesn20Client client = new Lesn20Client(host, port)) {
+			System.out.println("support " + client.pull());
 			String str = "5 + 6";
 			client.push(str);
 			System.out.println(str + " = ");
-//			System.out.println(str + " = " + client.pull()); // !!! висит
+			System.out.println(str + " = " + client.pull());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

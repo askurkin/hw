@@ -11,34 +11,30 @@ import java.net.Socket;
 
 public class Lesn20Client implements AutoCloseable {
 	private Socket socket;
-	private DataInputStream in;
 	private DataOutputStream out;
+	private DataInputStream in;
 
 	public Lesn20Client(String srv, int port) throws IOException {
 		socket = new Socket(srv, port);
-		in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 		out = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+		in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 	}
 
 	@Override
 	public void close() throws Exception {
 		in.close();
 		out.close();
+		socket.close();
 	}
 
-	public void push(String str) throws IOException, InterruptedException {
-		out.writeBytes(str);
+	public void push(String str) throws IOException {
+		out.writeBytes(str + "\n");
 		out.flush();
-		Thread.sleep(5000);
 	}
 
-	public String pull() {
-		String result;
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
-			result = reader.readLine();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		return result;
+	public String pull() throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+		String line = reader.readLine();
+		return line;
 	}
 }
