@@ -9,35 +9,32 @@ public class AppLesson26 {
 
 	public static void main(String[] args) {
 		Box<Fruit> boxFruit = new Box<>();
+		Box<Apple> boxApple = new Box<>();
 		Box<Orange> boxOrange = new Box<>();
 		Box<Orange> boxOrange2 = new Box<>();
-		Box<Apple> boxApple = new Box<>();
 
-		boxFruit.put(new Fruit(2));
-		boxFruit.put(new Orange(2));
-		System.out.println("boxFruit = " + boxFruit.getFruits() + "\n");
+		boxFruit.add(new Fruit(2));
+		boxFruit.add(new Orange(2));
+		System.out.println("boxFruit = " + boxFruit);
 
-		boxApple.put(new Apple(4));
-		System.out.println("boxApple = " + boxApple.getFruits() + "\n");
+		boxApple.add(new Apple(4));
+		System.out.println("boxApple = " + boxApple);
 
-		System.out.println("boxApple.compare(boxFruit) = " + boxApple.compare(boxFruit) + "\n");
+		System.out.println("boxApple.compare(boxFruit) = " + boxApple.compare(boxFruit));
 
-//		boxApple.put(new Orange(2));
-//		System.out.println("boxApple = " + boxApple.getFruits() + "\n");
+//		boxApple.add(new Orange(2));
 
-		boxOrange.put(new Orange(3));
-		System.out.println("boxOrange + Orange = " + boxOrange.getFruits() + "\n");
+		boxOrange.add(new Orange(3));
+		System.out.println("boxOrange = " + boxOrange);
 
+		boxOrange.moveTo(boxOrange2);
 		boxApple.moveTo(boxFruit);
-		System.out.println("boxFruit + boxApple = " + boxFruit.getFruits() + "\n");
+//		boxOrange.moveTo(boxApple);
 
-		boxOrange2.moveTo(boxOrange);
-		try {
-			boxOrange.moveTo(boxApple);
-			System.out.println("boxOrange.moveTo(boxApple); - нельзя !!");
-		} catch (Exception e) {
-			System.out.println("Всё верно boxOrange.moveTo(boxApple); нельзя");
-		}
-
+		//
+		System.out.println("\nboxFruit = " + boxFruit);
+		System.out.println("boxApple = " + boxApple);
+		System.out.println("boxOrange = " + boxOrange);
+		System.out.println("boxOrange2 = " + boxOrange2);
 	}
 }

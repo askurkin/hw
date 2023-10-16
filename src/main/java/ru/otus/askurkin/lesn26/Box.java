@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Box<T extends Fruit> {
 	private List<T> fruits;
+	public static int count = 0;
+	private String name;
 
 	public List<T> getFruits() {
 		return fruits;
@@ -12,26 +14,27 @@ public class Box<T extends Fruit> {
 
 	public Box() {
 		this.fruits = new ArrayList();
+		this.name = "Box" + (count++);
 	}
 
-	public boolean put(Fruit element) {
-		if (fruits.size() > 0) {
-			System.out.println(element.getClass() + " => " + fruits.get(0).getClass());
-		}
+	@Override
+	public String toString() {
+		return name + fruits.toString();
+	}
 
-		if (!(T instanceof Fruit) && !(element instanceof T)) {
-			return false;
-		}
+	public <F extends T> void add(F element) {
+		fruits.add(element);
+	}
 
-		fruits.add((T) element);
-		return true;
+	public void remove(T element) {
+		fruits.remove(element);
 	}
 
 	public int weight() {
 		int sumWeight = 0;
 
 		for (T fruit : fruits) {
-			sumWeight += fruit.getWeight();
+			sumWeight += fruit.weight;
 		}
 
 		return sumWeight;
@@ -41,13 +44,13 @@ public class Box<T extends Fruit> {
 		return this.weight() == others.weight();
 	}
 
-	public boolean moveTo(Box<? extends Fruit> copy) {
-		for (T fruit : fruits) {
-			System.out.println(fruit.getClass() + " => " + copy.getFruits().get(0).getClass());
-			if (copy.put(fruit)) {
-				fruits.remove(fruit);
-			}
+	public void moveTo(Box<? super T> boxTo) {
+		if (this == boxTo || this.fruits == null) {
+			return;
 		}
-		return true;
+		for (T fruit : this.fruits) {
+			boxTo.add(fruit);
+		}
+		fruits.clear();
 	}
 }
