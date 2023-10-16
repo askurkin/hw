@@ -1,7 +1,7 @@
 package ru.otus.askurkin.lesn26;
 
 public class Fruit {
-	private int weight;
+	int weight;
 
 	public Fruit(int weight) {
 		this.weight = weight;

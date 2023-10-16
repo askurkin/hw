@@ -15,17 +15,29 @@ public class AppLesson26 {
 
 		boxFruit.put(new Fruit(2));
 		boxFruit.put(new Orange(2));
+		System.out.println("boxFruit = " + boxFruit.getFruits() + "\n");
 
-		boxApple.put(new Apple( 4));
+		boxApple.put(new Apple(4));
+		System.out.println("boxApple = " + boxApple.getFruits() + "\n");
 
-		boxApple.compare(boxFruit);
-//		boxApple.put(new Orange(2)); -- err
+		System.out.println("boxApple.compare(boxFruit) = " + boxApple.compare(boxFruit) + "\n");
 
-		boxOrange.put(new Orange( 3));
+//		boxApple.put(new Orange(2));
+//		System.out.println("boxApple = " + boxApple.getFruits() + "\n");
+
+		boxOrange.put(new Orange(3));
+		System.out.println("boxOrange + Orange = " + boxOrange.getFruits() + "\n");
 
 		boxApple.moveTo(boxFruit);
+		System.out.println("boxFruit + boxApple = " + boxFruit.getFruits() + "\n");
+
 		boxOrange2.moveTo(boxOrange);
-		boxOrange.moveTo(boxApple);
+		try {
+			boxOrange.moveTo(boxApple);
+			System.out.println("boxOrange.moveTo(boxApple); - нельзя !!");
+		} catch (Exception e) {
+			System.out.println("Всё верно boxOrange.moveTo(boxApple); нельзя");
+		}
 
 	}
 }

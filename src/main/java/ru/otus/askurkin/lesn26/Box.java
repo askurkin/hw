@@ -1,11 +1,10 @@
 package ru.otus.askurkin.lesn26;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Box<T extends Fruit> {
-	List<T> fruits;
+	private List<T> fruits;
 
 	public List<T> getFruits() {
 		return fruits;
@@ -15,8 +14,16 @@ public class Box<T extends Fruit> {
 		this.fruits = new ArrayList();
 	}
 
-	public boolean put(T element) {
-		fruits.add(element);
+	public boolean put(Fruit element) {
+		if (fruits.size() > 0) {
+			System.out.println(element.getClass() + " => " + fruits.get(0).getClass());
+		}
+
+		if (!(T instanceof Fruit) && !(element instanceof T)) {
+			return false;
+		}
+
+		fruits.add((T) element);
 		return true;
 	}
 
@@ -34,11 +41,13 @@ public class Box<T extends Fruit> {
 		return this.weight() == others.weight();
 	}
 
-	public void copyFrom(Box<? extends Fruit> copy) {
-		for (var fruit : copy.getFruits()) {
-			this.put(fruit);
+	public boolean moveTo(Box<? extends Fruit> copy) {
+		for (T fruit : fruits) {
+			System.out.println(fruit.getClass() + " => " + copy.getFruits().get(0).getClass());
+			if (copy.put(fruit)) {
+				fruits.remove(fruit);
+			}
 		}
+		return true;
 	}
 }
-
-//		Реализуйте метод, позволяющий пересыпать фрукты из текущей коробки в другую. Помним про сортировку фруктов в коробках;
